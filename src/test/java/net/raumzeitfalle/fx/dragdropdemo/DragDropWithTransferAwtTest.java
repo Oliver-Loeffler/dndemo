@@ -12,10 +12,10 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class DragDropWithTransferTest extends FxTestTemplate {
+public class DragDropWithTransferAwtTest extends FxTestTemplate {
     
     static {
-        System.clearProperty("testfx.robot");
+        System.setProperty("testfx.robot", "awt");
     }
     
     Node dragSource;
@@ -39,7 +39,7 @@ public class DragDropWithTransferTest extends FxTestTemplate {
     }
     
     @Test
-    @DisplayName("This one will fail when JavaFX Robot is used to drag and drop.")
+    @DisplayName("With AWT robot everything works fine")
     void that_text_is_moved_from_source_to_target() throws Exception {
         drag(dragSource, MouseButton.PRIMARY).dropTo(dropTarget);      
         assertEquals("DRAG FROM HERE", ((Button)dropTarget).getText());

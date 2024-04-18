@@ -24,6 +24,7 @@ public class DragDropSourceScene {
                 ClipboardContent content = new ClipboardContent();
                 content.putString(okayButton.getText());
                 event.consume();
+                okayButton.startFullDrag();
                 okayButton.startDragAndDrop(TransferMode.ANY).setContent(content);
             }
         });
@@ -33,7 +34,7 @@ public class DragDropSourceScene {
                 /* the drag and drop gesture ended */
                 /* if the data was successfully moved, clear it */
                 if (event.getTransferMode() == TransferMode.MOVE) {
-                    okayButton.setText("");
+                    okayButton.setText("...");
                 }
                 event.consume();
             }

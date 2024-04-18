@@ -16,19 +16,12 @@ public class DragDropTargetScene {
     public AnchorPane pane;
     
     public Scene scene;
-
-    private Button okayButton;
     
     public Button dropButton;
     
     public DragDropTargetScene() {
-        okayButton = new Button("DROP HERE");
         dropButton = new Button("...");
-        pane = new AnchorPane(okayButton, dropButton);
-        
-        AnchorPane.setTopAnchor(okayButton, 5.0);
-        AnchorPane.setLeftAnchor(okayButton, 5.0);
-        AnchorPane.setRightAnchor(okayButton, 5.0);
+        pane = new AnchorPane(dropButton);
         
         AnchorPane.setBottomAnchor(dropButton, 5.0);
         AnchorPane.setRightAnchor(dropButton, 5.0);

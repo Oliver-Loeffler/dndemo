@@ -2,6 +2,7 @@ package net.raumzeitfalle.fx.dragdropdemo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javafx.scene.Node;
@@ -12,6 +13,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class DragDropWithoutTransferTest extends FxTestTemplate {
+    
+    static {
+        System.clearProperty("testfx.robot");
+    }
     
     Node dragSource;
     Node dropTarget;
@@ -34,7 +39,8 @@ public class DragDropWithoutTransferTest extends FxTestTemplate {
     }
     
     @Test
-    void whoo() throws Exception {
+    @DisplayName("Here the drag and drop motion happens but no content exchange.")
+    void that_text_is_moved_from_source_to_target() throws Exception {
         drag(dragSource, MouseButton.PRIMARY).dropTo(dropTarget);      
         assertEquals("DRAG FROM HERE", ((Button)dropTarget).getText());
     }
