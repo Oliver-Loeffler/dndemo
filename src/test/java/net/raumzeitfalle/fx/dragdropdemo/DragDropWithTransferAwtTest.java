@@ -2,6 +2,7 @@ package net.raumzeitfalle.fx.dragdropdemo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
@@ -15,12 +16,13 @@ import javafx.stage.Stage;
 
 public class DragDropWithTransferAwtTest extends ApplicationTest {
     
-    static {
+    private Node dragSource;
+    private Node dropTarget;
+    
+    @BeforeAll
+    public static void setup() {
         System.setProperty("testfx.robot", "awt");
     }
-    
-    Node dragSource;
-    Node dropTarget;
     
     @Override
     public void start(Stage stage) {
