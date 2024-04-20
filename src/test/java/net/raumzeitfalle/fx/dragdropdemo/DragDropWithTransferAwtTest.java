@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.testfx.framework.junit5.ApplicationTest;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -12,7 +13,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class DragDropWithTransferAwtTest extends FxTestTemplate {
+public class DragDropWithTransferAwtTest extends ApplicationTest {
     
     static {
         System.setProperty("testfx.robot", "awt");
@@ -23,7 +24,6 @@ public class DragDropWithTransferAwtTest extends FxTestTemplate {
     
     @Override
     public void start(Stage stage) {
-        primaryStage = stage;
         DragDropSourceScene sourceScene = new DragDropSourceScene().enableDragHandling();
         DragDropTargetScene targetScene = new DragDropTargetScene();
         dragSource = sourceScene.okayButton;
@@ -35,7 +35,6 @@ public class DragDropWithTransferAwtTest extends FxTestTemplate {
         stage.setX(100);
         stage.setY(100);
         stage.show();
-        
     }
     
     @Test
